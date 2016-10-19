@@ -116,3 +116,7 @@ def fetchHTML():
 		print "Proxied Request Took: {0} sec => Status: {1}".format((time.time() - start), requestInside.__str__())
 	print "Total time to fetch: {0} sec".format((time.time() - firstTime))
 	return requestInside.text
+
+
+if __name__ == "__main__":
+		app.run(host='0.0.0.0')
