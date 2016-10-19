@@ -75,6 +75,10 @@ class RequestProxy:
 								pass
 						print "Read timed out - Removed Straggling proxy: {0} PL Size = {1}".format(rand_proxy,
 																																												len(self.proxy_list))
+@app.route('/',methods=['GET'])
+def hello():
+    return "<h1 style='color:blue'>Hello There!</h1>"
+
 
 @app.route('/refreshProxies',methods=['GET','POST'])
 def refreshProxies():
