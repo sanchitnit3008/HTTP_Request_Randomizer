@@ -104,7 +104,17 @@ def refreshProxies():
 		thefile.write("%s\n" % item)
 	return 'Done writing'
 
-
+@application.route('/testIP',methods=['GET'])
+def testIP(params={}, req_timeout=5);
+	url = request.args.get('url')
+	req_proxy = RequestProxy();
+	firstTime = time.time()
+	start = time.time()
+	proxy = request.args.get('proxy')
+	req_headers = dict(params.items() + req_proxy.generate_random_request_headers().items())
+	request = requests.get(url, proxies={"http": proxy},
+										headers=req_headers, timeout=req_timeout)
+	return request.text
 
 @application.route('/fetchHTML', methods=['GET'])
 def fetchHTML():
